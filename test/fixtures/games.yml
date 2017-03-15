@@ -3,9 +3,9 @@
 one:
   title: MyString
   date: 2017-03-15
-  totalPlayers: 
+  totalPlayers: 1
 
 two:
   title: MyString
   date: 2017-03-15
-  totalPlayers: 
+  totalPlayers: 1
