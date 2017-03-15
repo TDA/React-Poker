@@ -3,7 +3,7 @@ class CreateGames < ActiveRecord::Migration
     create_table :games do |t|
       t.string :title
       t.date :date
-      t.int :totalPlayers
+      t.integer :totalPlayers
 
       t.timestamps null: false
     end
