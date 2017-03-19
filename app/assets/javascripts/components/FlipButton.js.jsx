@@ -5,7 +5,7 @@
 var FlipButton = React.createClass({
     render: function () {
         return (
-            <button type="button" onClick={this.props.onclick}>Flip Cards</button>
+            <button type="button" className="btn btn-primary" onClick={this.props.onclick}>Flip Cards</button>
         );
     }
 }); 
