@@ -32,7 +32,7 @@ var Card = React.createClass({
     },
     render: function() {
         return (
-            <div className="card">
+            <div className="poker-card">
                 <div className={"card-face card-front " + this.showCardFront()}> {this.state.player.name} </div>
                 <div className={"card-face card-back " + this.showCardBack()}> {this.state.value} </div>
             </div>

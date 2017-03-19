@@ -54,7 +54,9 @@ var Game = React.createClass({
     render: function() {
         return (
             <div>
-                <FlipButton onclick={this.flipAllCards} />
+                <div className="pull-right">
+                    <FlipButton onclick={this.flipAllCards} />
+                </div>
                 {this.dealCards()}
             </div>
         )
