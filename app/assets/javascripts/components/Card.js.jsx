@@ -23,6 +23,11 @@ var Card = React.createClass({
                 isFlipped: newProps.isFlipped
             });
         }
+        if (newProps.value !== this.state.value) {
+            this.setState({
+                value: newProps.value
+            });
+        }
     },
     showCardFront: function () {
         return this.state.isFlipped? "": "upside";
@@ -33,8 +38,12 @@ var Card = React.createClass({
     render: function() {
         return (
             <div className="poker-card">
-                <div className={"card-face card-front " + this.showCardFront()}> {this.state.player.name} </div>
-                <div className={"card-face card-back " + this.showCardBack()}> {this.state.value} </div>
+                <div className={"card-face card-front " + this.showCardFront()}>
+                    <span> {this.state.player.name} </span>
+                </div>
+                <div className={"card-face card-back " + this.showCardBack()}>
+                    <span> {this.state.value} </span>
+                </div>
             </div>
         )
     }

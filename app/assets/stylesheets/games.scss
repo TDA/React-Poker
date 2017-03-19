@@ -5,7 +5,7 @@
 .poker-card {
   display: inline-block;
   width: 200px;
-  height: 250px;
+  height: 300px;
   border: solid #fff 5px;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
   -webkit-box-sizing: border-box;
@@ -20,12 +20,21 @@
   .card-face {
     position: absolute;
     text-align: center;
-    top: 25%;
+    height: 100%;
     width: 100%;
     opacity: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
     &.upside {
       opacity: 1;
+      z-index: 10;
+    }
+
+    &.card-front {
+      background: image-url("playing-card_1920.jpg");
+      background-size: cover;
     }
   }
 }
