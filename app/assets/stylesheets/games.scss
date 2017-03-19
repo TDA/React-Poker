@@ -13,4 +13,19 @@
   box-sizing: border-box;
   margin: 10px;
   text-align: center;
+  font-size: 3em;
+  line-height: 3em;
+  position: relative;
+
+  .card-face {
+    position: absolute;
+    text-align: center;
+    left: 33%;
+    top: 20%;
+    opacity: 0;
+
+    &.upside {
+      opacity: 1;
+    }
+  }
 }

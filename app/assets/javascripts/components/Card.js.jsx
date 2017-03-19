@@ -5,21 +5,36 @@
 var Card = React.createClass({
     getInitialState: function () {
         return {
-            playerId: this.props.playerId,
-            value: 0
+            player: this.props.player,
+            value: 0,
+            isFlipped: this.props.isFlipped
         }
     },
     getDefaultProps: function () {
         return {
-            playerId: 0,
+            player: undefined,
             value: 0
         }
+    },
+    componentWillReceiveProps: function(newProps) {
+        // You don't have to do this check first, but it can help prevent an unneeded render
+        if (newProps.isFlipped !== this.state.isFlipped) {
+            this.setState({
+                isFlipped: newProps.isFlipped
+            });
+        }
+    },
+    showCardFront: function () {
+        return this.state.isFlipped? "": "upside";
+    },
+    showCardBack: function () {
+        return this.state.isFlipped? "upside": "";
     },
     render: function() {
         return (
             <div className="card">
-                {this.state.playerId}<br />
-                <h1>{this.state.value}</h1>
+                <div className={"card-face card-front " + this.showCardFront()}> {this.state.player.name} </div>
+                <div className={"card-face card-back " + this.showCardBack()}> {this.state.value} </div>
             </div>
         )
     }
