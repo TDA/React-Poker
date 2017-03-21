@@ -44,10 +44,19 @@ var Game = React.createClass({
             flippedCards: flippedCards
         });
     },
-    dealCards: function () {
+    showCards: function () {
         var cards = [];
         for (x = 1; x <= this.state.totalPlayers; x++) {
             cards.push(<Card key={x} player={this.state.players[x - 1]} isFlipped={this.isCardFlipped(x - 1)} />);
+        }
+        return cards;
+    },
+    dealCards: function () {
+        // for now, deal the fibonacci
+        var cardValues = [0, 1, 2, 3, 5, 8, 13, 20, '?'];
+        var cards = [];
+        for (x = 0; x < cardValues.length; x++) {
+            cards.push(<PokerCard key={x} value={cardValues[x]} />);
         }
         return cards;
     },
@@ -57,7 +66,8 @@ var Game = React.createClass({
                 <div className="pull-right">
                     <FlipButton onclick={this.flipAllCards} />
                 </div>
-                {this.dealCards()}
+                <div className="players">{this.showCards()}</div>
+                <div className="playerCards">{this.dealCards()}</div>
             </div>
         )
     }
