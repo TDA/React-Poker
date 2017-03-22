@@ -3,9 +3,12 @@
  */
 
 var PokerCard = React.createClass({
+    isActiveCard: function () {
+        return this.state.isActive? "active": "";
+    },
     render: function () {
         return (
-            <div className="poker-card">
+            <div className={"poker-card " + this.isActiveCard()}>
                 <div>
                     <span> {this.props.value} </span>
                 </div>

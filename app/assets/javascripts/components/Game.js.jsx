@@ -52,7 +52,7 @@ var Game = React.createClass({
         return cards;
     },
     dealCards: function () {
-        // for now, deal the fibonacci
+        // for now, deal the fibonacci, 9 cards.
         var cardValues = [0, 1, 2, 3, 5, 8, 13, 20, '?'];
         var cards = [];
         for (x = 0; x < cardValues.length; x++) {
@@ -67,7 +67,7 @@ var Game = React.createClass({
                     <FlipButton onclick={this.flipAllCards} />
                 </div>
                 <div className="players">{this.showCards()}</div>
-                <div className="playerCards">{this.dealCards()}</div>
+                <div className="player-cards">{this.dealCards()}</div>
             </div>
         )
     }

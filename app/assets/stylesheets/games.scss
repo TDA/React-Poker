@@ -37,4 +37,12 @@
       background-size: cover;
     }
   }
+
+  .player-cards & {
+    &.active-card {
+      transform: scale(1.5);
+      z-index: 10;
+    }
+  }
+
 }
