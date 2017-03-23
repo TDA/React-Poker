@@ -56,9 +56,12 @@ var Game = React.createClass({
         var cardValues = [0, 1, 2, 3, 5, 8, 13, 20, '?'];
         var cards = [];
         for (x = 0; x < cardValues.length; x++) {
-            cards.push(<PokerCard key={x} value={cardValues[x]} />);
+            cards.push(<PokerCard key={x} value={cardValues[x]} onclick={this.setActive(x)}/>);
         }
         return cards;
+    },
+    setActiveCard: function (index) {
+        var cardValues = [0, 1, 2, 3, 5, 8, 13, 20, '?'];
     },
     render: function() {
         return (
