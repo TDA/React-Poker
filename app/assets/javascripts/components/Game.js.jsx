@@ -70,6 +70,7 @@ var Game = React.createClass({
                     <FlipButton onclick={this.flipAllCards} />
                 </div>
                 <div className="players">{this.showCards()}</div>
+                <PlayerCards />
                 <div className="player-cards">{this.dealCards()}</div>
             </div>
         )
