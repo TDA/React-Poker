@@ -51,18 +51,6 @@ var Game = React.createClass({
         }
         return cards;
     },
-    dealCards: function () {
-        // for now, deal the fibonacci, 9 cards.
-        var cardValues = [0, 1, 2, 3, 5, 8, 13, 20, '?'];
-        var cards = [];
-        for (x = 0; x < cardValues.length; x++) {
-            cards.push(<PokerCard key={x} value={cardValues[x]} onclick={this.setActive(x)}/>);
-        }
-        return cards;
-    },
-    setActiveCard: function (index) {
-        var cardValues = [0, 1, 2, 3, 5, 8, 13, 20, '?'];
-    },
     render: function() {
         return (
             <div>
@@ -71,7 +59,6 @@ var Game = React.createClass({
                 </div>
                 <div className="players">{this.showCards()}</div>
                 <PlayerCards />
-                <div className="player-cards">{this.dealCards()}</div>
             </div>
         )
     }
