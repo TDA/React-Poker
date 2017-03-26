@@ -14,6 +14,7 @@ function generateCards() {
         cardStates: cardStates
     }
 }
+
 var PlayerCards = React.createClass({
     getInitialState: function () {
         return generateCards();

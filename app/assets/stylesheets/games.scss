@@ -40,6 +40,15 @@
 
   .player-cards & {
     transition: all 0.5s ease;
+    position: absolute;
+
+    @for $i from 1 through 9 {
+      &:nth-child(#{$i}) {
+        transform: rotate(#{($i - 5) * 8}deg);
+        left: #{($i) * 100}px;
+        top: #{abs($i - 5) * 20}px;
+      }
+    }
 
     &:hover {
       transform: scale(1.25);
@@ -55,5 +64,6 @@
 }
 
 .player-cards {
+  position: relative;
   //transform: translateY(-50%);
 }
