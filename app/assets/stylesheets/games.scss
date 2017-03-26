@@ -1,11 +1,19 @@
 // Place all the styles related to the Games controller here.
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$card-width: 200px;
+$card-height: 1.5 * $card-width;
+$dealt-card-width: $card-width * 0.75;
+$dealt-card-height: $card-height * 0.75;
+$dealt-card-color: #dddd11;
+$color-white: #fff;
+$color-black: #000;
 
 .poker-card {
   display: inline-block;
-  width: 200px;
-  height: 300px;
+  width: $card-width;
+  height: $card-height;
+  color: $color-black;
   border: solid #fff 5px;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
   -webkit-box-sizing: border-box;
@@ -39,26 +47,46 @@
   }
 
   .player-cards & {
-    transition: all 0.5s ease;
+    transition:
+            transform 0.5s ease,
+            box-shadow 0.1s ease;
     position: absolute;
+    width: $dealt-card-width;
+    height: $dealt-card-height;
+    color: $color-white;
+
+    &:nth-child(n + 6) {
+      transform-origin: left bottom;
+    }
+
+    &:nth-child(-n + 4) {
+      transform-origin: bottom right;
+    }
 
     @for $i from 1 through 9 {
       &:nth-child(#{$i}) {
         transform: rotate(#{($i - 5) * 8}deg);
         left: #{($i) * 100}px;
         top: #{abs($i - 5) * 20}px;
+        background-color: darken($dealt-card-color, $i * 5);
+
+        &:hover {
+          transform: rotate(#{($i - 5) * 8}deg) scale(1.1) translateY(-40px);
+          z-index: 10;
+        }
+
+        &.selected-card {
+          transform: rotate(#{($i - 5) * 8}deg) scale(1.1) translateY(-40px);
+          z-index: 10;
+          outline: solid 1px $dealt-card-color;
+          box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.5);
+        }
       }
     }
 
-    &:hover {
-      transform: scale(1.25);
-      z-index: 10;
-    }
-
-    &.selected-card {
-      transform: scale(1.25);
-      z-index: 10;
-      outline: solid 1px red;
+    // Order matters here, we need to override the above declaration
+    &:nth-child(5) {
+      top: 10px;
     }
   }
 }
