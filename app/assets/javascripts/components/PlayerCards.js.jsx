@@ -26,9 +26,9 @@ var PlayerCards = React.createClass({
         cardStates = this.state.cardStates.slice();
         // reset all values
         for (var i = 0; i < cardStates.length; i++) {
-            cardStates[i] = cardStates[i].replace("active-card", "");
+            cardStates[i] = cardStates[i].replace(" active-card", "");
         }
-        cardStates[index] = "active-card";
+        cardStates[index] += " active-card";
         console.log("Setting ", index, " as active")
         this.setState({
             cardStates: cardStates
@@ -38,9 +38,9 @@ var PlayerCards = React.createClass({
         cardStates = this.state.cardStates.slice();
         // reset all values
         for (var i = 0; i < cardStates.length; i++) {
-            cardStates[i] = cardStates[i].replace("selected-card", "");
+            cardStates[i] = cardStates[i].replace(" selected-card", "");
         }
-        cardStates[index] = "selected-card";
+        cardStates[index] = " selected-card";
         console.log("Setting ", index, " as selected")
         this.setState({
             cardStates: cardStates
