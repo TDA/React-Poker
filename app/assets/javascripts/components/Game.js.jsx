@@ -32,6 +32,7 @@ var Game = React.createClass({
         this.setState({
             flippedCards: flippedCards
         });
+        console.log("I was callled")
     },
     isCardFlipped: function (cardIndex) {
         return this.state.flippedCards[cardIndex];
