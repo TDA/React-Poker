@@ -44,6 +44,12 @@
       transform: scale(1.25);
       z-index: 10;
     }
+
+    &.selected-card {
+      transform: scale(1.25);
+      z-index: 10;
+      outline: solid 1px red;
+    }
   }
 
 }

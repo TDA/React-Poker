@@ -23,7 +23,9 @@ var PokerCard = React.createClass({
     // },
     render: function () {
         return (
-            <div className={"poker-card " + this.props.className} onMouseOver={this.props.onclick}>
+            <div className={"poker-card " + this.props.className}
+                 onMouseOver={this.props.onhover}
+                 onClick={this.props.onclick}>
                 <div>
                     <span> {this.props.value} </span>
                 </div>

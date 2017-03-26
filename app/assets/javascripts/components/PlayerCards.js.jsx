@@ -26,10 +26,22 @@ var PlayerCards = React.createClass({
         cardStates = this.state.cardStates.slice();
         // reset all values
         for (var i = 0; i < cardStates.length; i++) {
-            cardStates[i] = "";
+            cardStates[i] = cardStates[i].replace("active-card", "");
         }
         cardStates[index] = "active-card";
         console.log("Setting ", index, " as active")
+        this.setState({
+            cardStates: cardStates
+        })
+    },
+    setSelected: function (index) {
+        cardStates = this.state.cardStates.slice();
+        // reset all values
+        for (var i = 0; i < cardStates.length; i++) {
+            cardStates[i] = cardStates[i].replace("selected-card", "");
+        }
+        cardStates[index] = "selected-card";
+        console.log("Setting ", index, " as selected")
         this.setState({
             cardStates: cardStates
         })
@@ -38,7 +50,11 @@ var PlayerCards = React.createClass({
         // for now, deal the fibonacci, 9 cards.
         var cards = [];
         for (x = 0; x < this.state.cardValues.length; x++) {
-            cards.push(<PokerCard key={x} value={this.state.cardValues[x]} onclick={this.setActive.bind(this, x)} className={this.state.cardStates[x]} />);
+            cards.push(<PokerCard key={x}
+                                  value={this.state.cardValues[x]}
+                                  onhover={this.setActive.bind(this, x)}
+                                  onclick={this.setSelected.bind(this, x)}
+                                  className={this.state.cardStates[x]} />);
         }
         return cards;
     },
