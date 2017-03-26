@@ -9,7 +9,6 @@ function generateCards() {
     for (var i = 0; i < cardValues.length; i++) {
         cardStates[i] = "";
     }
-    console.log("I am a problem?")
     return {
         cardValues: cardValues,
         cardStates: cardStates
@@ -22,26 +21,16 @@ var PlayerCards = React.createClass({
     getDefaultProps: function () {
         return generateCards();
     },
-    setActive: function (index) {
-        cardStates = this.state.cardStates.slice();
-        // reset all values
-        for (var i = 0; i < cardStates.length; i++) {
-            cardStates[i] = cardStates[i].replace(" active-card", "");
-        }
-        cardStates[index] += " active-card";
-        console.log("Setting ", index, " as active")
-        this.setState({
-            cardStates: cardStates
-        })
-    },
     setSelected: function (index) {
+        this.setCardState(index, "selected-card");
+    },
+    setCardState: function (index, stateName) {
         cardStates = this.state.cardStates.slice();
         // reset all values
         for (var i = 0; i < cardStates.length; i++) {
-            cardStates[i] = cardStates[i].replace(" selected-card", "");
+            cardStates[i] = cardStates[i].replace(" " + stateName, "");
         }
-        cardStates[index] = " selected-card";
-        console.log("Setting ", index, " as selected")
+        cardStates[index] += " " + stateName;
         this.setState({
             cardStates: cardStates
         })
@@ -52,7 +41,6 @@ var PlayerCards = React.createClass({
         for (x = 0; x < this.state.cardValues.length; x++) {
             cards.push(<PokerCard key={x}
                                   value={this.state.cardValues[x]}
-                                  onhover={this.setActive.bind(this, x)}
                                   onclick={this.setSelected.bind(this, x)}
                                   className={this.state.cardStates[x]} />);
         }
