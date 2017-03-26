@@ -28,7 +28,7 @@ var PlayerCards = React.createClass({
         for (var i = 0; i < cardStates.length; i++) {
             cardStates[i] = "";
         }
-        cardStates[index] = "active";
+        cardStates[index] = "active-card";
         console.log("Setting ", index, " as active")
         this.setState({
             cardStates: cardStates
