@@ -5,10 +5,10 @@ This is a simple scrum poker game under development with React and Rails.
 *Needs updates*
 
 ## Technologies used
-#Rails
-#HTML - Sass
-#React
-#*JSX
+1. Rails
+1. HTML - Sass
+1. React
+  1. JSX
 
 ## Roadmap
 Roadmap is essentially looking to get the MVP version out first.
