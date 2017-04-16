@@ -2,17 +2,23 @@
 This is a simple scrum poker game under development with React and Rails.
 
 ## Running locally
-*Needs updates*
+(Must have `rails` and `gem` already installed)
+* Clone the repo
+* Run rails db:migrate
+* Run `gem install`
+* Run `rails server`
+
+Will update when I think of new stuff.
 
 ## Technologies used
-1. Rails
+1. Rails - Pretty much Vanilla
 1. HTML - Sass
 1. React
-  1. JSX
+1. JSX
 
 ## Roadmap
 Roadmap is essentially looking to get the MVP version out first.
-The features for the MVP can be found as issues in the Project tab on Github.
+The features for the MVP can be found as issues in the `Projects` tab on Github.
 Long term vision is to have a fully working Scrum Poker app, that can support large, multiple teams.
 
 ## Feature requests
