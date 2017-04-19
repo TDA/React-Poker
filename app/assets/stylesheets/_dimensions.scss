@@ -1,0 +1,6 @@
+// This file will hold all the dimensions for our app.
+// This will allow us to switch sizes easily.
+$card-width: 200px;
+$card-height: 1.5 * $card-width;
+$dealt-card-width: $card-width * 0.75;
+$dealt-card-height: $card-height * 0.75;

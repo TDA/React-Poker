@@ -1,11 +1,8 @@
 // Place all the styles related to the Games controller here.
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$card-width: 200px;
-$card-height: 1.5 * $card-width;
-$dealt-card-width: $card-width * 0.75;
-$dealt-card-height: $card-height * 0.75;
-$dealt-card-color: #dddd11;
+@import "colors";
+@import "dimensions";
 
 .poker-card {
   display: inline-block;
