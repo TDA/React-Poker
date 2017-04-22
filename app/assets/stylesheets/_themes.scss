@@ -1,28 +1,22 @@
 // This file will hold all the themes for our app.
 // This will allow us to switch themes easily.
 // For now, power ranger themes ftw!!
+@import "colors";
 
-body {
-  /* Default theme is set here, override more specifically */
-  $dealt-card-color: $dealt-card-color-default-theme;
-
-  &.red-theme {
-    $dealt-card-color: $dealt-card-color-red-theme;
-  }
-
-  &.green-theme {
-    $dealt-card-color: $dealt-card-color-green-theme;
-  }
-
-  &.blue-theme {
-    $dealt-card-color: $dealt-card-color-blue-theme;
-  }
-
-  &.yellow-theme {
-    $dealt-card-color: $dealt-card-color-yellow-theme;
-  }
-
-  &.pink-theme {
-    $dealt-card-color: $dealt-card-color-pink-theme;
-  }
-}
+$themes: (
+        'red-theme': (
+          'dealt-card-color': $dealt-card-color-red-theme
+        ),
+        'green-theme': (
+          'dealt-card-color': $dealt-card-color-green-theme
+        ),
+        'blue-theme': (
+          'dealt-card-color': $dealt-card-color-blue-theme
+        ),
+        'yellow-theme': (
+          'dealt-card-color': $dealt-card-color-yellow-theme
+        ),
+        'pink-theme': (
+          'dealt-card-color': $dealt-card-color-pink-theme
+        )
+) !default;

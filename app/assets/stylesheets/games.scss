@@ -2,7 +2,9 @@
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "colors";
+@import "themes";
 @import "dimensions";
+$dealt-card-color: #ccc;
 
 .poker-card {
   display: inline-block;
@@ -63,7 +65,7 @@
         transform: rotate(#{($i - 5) * 8}deg);
         left: #{($i) * 100}px;
         top: #{abs($i - 5) * 20}px;
-        background-color: darken($dealt-card-color, $i * 3);
+        ($dealt-card-color, $i * 3);
 
         &:hover {
           transform: rotate(#{($i - 5) * 8}deg) scale(1.1) translateY(-40px);
@@ -73,7 +75,8 @@
         &.selected-card {
           transform: rotate(#{($i - 5) * 8}deg) scale(1.1) translateY(-40px);
           z-index: 10;
-          outline: solid 1px $dealt-card-color;
+          outline: solid 1px;
+          outline-color: $dealt-card-color;
           box-shadow: 0 0 3px 3px $box-shadow-color;
         }
       }
