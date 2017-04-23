@@ -4,19 +4,66 @@
 @import "colors";
 
 $themes: (
-        'red-theme': (
+        'default': (
+          'dealt-card-color': $dealt-card-color-default-theme
+        ),
+        'red': (
           'dealt-card-color': $dealt-card-color-red-theme
         ),
-        'green-theme': (
+        'green': (
           'dealt-card-color': $dealt-card-color-green-theme
         ),
-        'blue-theme': (
+        'blue': (
           'dealt-card-color': $dealt-card-color-blue-theme
         ),
-        'yellow-theme': (
+        'yellow': (
           'dealt-card-color': $dealt-card-color-yellow-theme
         ),
-        'pink-theme': (
+        'pink': (
           'dealt-card-color': $dealt-card-color-pink-theme
         )
 ) !default;
+
+@mixin themify($property, $key, $darken-to: 0, $themes: $themes) {
+  // Iterate over the themes
+  @each $theme, $colors in $themes {
+    // Create a selector (e.g. `.media.theme-unicorn, .theme-unicorn .media`)
+    &.#{$theme}-theme,
+    .#{$theme}-theme & {
+      // Output the declaration
+      @if($darken-to != 0) {
+        #{$property}: darken(map-get($colors, $key), $darken-to);
+      } @else {
+        #{$property}: map-get($colors, $key);
+      }
+    }
+  }
+}
+
+/// Shorthand to themify color through `themify` mixin
+/// @access public
+/// @see {mixin} themify
+@mixin color($arguments...) {
+  @include themify('color', $arguments...);
+}
+
+/// Shorthand to themify border-color through `themify` mixin
+/// @access public
+/// @see {mixin} themify
+@mixin border-color($arguments...) {
+  @include themify('border-color', $arguments...);
+}
+
+/// Shorthand to themify border-color through `themify` mixin
+/// @access public
+/// @see {mixin} themify
+@mixin outline-color($arguments...) {
+  @include themify('outline-color', $arguments...);
+}
+
+/// Shorthand to themify background-color through `themify` mixin
+/// @access public
+/// @see {mixin} themify
+@mixin background-color($arguments...) {
+  @include themify('background-color', $arguments...);
+}

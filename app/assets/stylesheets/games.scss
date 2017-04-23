@@ -4,7 +4,6 @@
 @import "colors";
 @import "themes";
 @import "dimensions";
-$dealt-card-color: #ccc;
 
 .poker-card {
   display: inline-block;
@@ -65,7 +64,7 @@ $dealt-card-color: #ccc;
         transform: rotate(#{($i - 5) * 8}deg);
         left: #{($i) * 100}px;
         top: #{abs($i - 5) * 20}px;
-        ($dealt-card-color, $i * 3);
+        @include background-color('dealt-card-color', $i * 3);
 
         &:hover {
           transform: rotate(#{($i - 5) * 8}deg) scale(1.1) translateY(-40px);
@@ -76,7 +75,7 @@ $dealt-card-color: #ccc;
           transform: rotate(#{($i - 5) * 8}deg) scale(1.1) translateY(-40px);
           z-index: 10;
           outline: solid 1px;
-          outline-color: $dealt-card-color;
+          @include outline-color('dealt-card-color');
           box-shadow: 0 0 3px 3px $box-shadow-color;
         }
       }
