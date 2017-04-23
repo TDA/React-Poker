@@ -64,7 +64,9 @@
         transform: rotate(#{($i - 5) * 8}deg);
         left: #{($i) * 100}px;
         top: #{abs($i - 5) * 20}px;
-        @include background-color('dealt-card-color', $i * 3);
+        @include background-color('dealt-card-color', (
+                darken: $i * 3
+        ));
 
         &:hover {
           transform: rotate(#{($i - 5) * 8}deg) scale(1.1) translateY(-40px);

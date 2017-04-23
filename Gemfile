@@ -7,6 +7,8 @@ gem 'rails', '4.2.6'
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Bump sass version to make use of get-function
+gem 'sass', '~> 3.5.0.pre.rc.1'
 # Add bootstrap gem
 gem 'bootstrap-sass', '~> 3.3.6'
 # Add react

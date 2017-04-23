@@ -24,17 +24,23 @@ $themes: (
         )
 ) !default;
 
-// This can be made more generic for all coloring properties
+// This has been made more generic for all coloring properties
 // e.g. lighten, darken, saturate, etc
-@mixin themify($property, $key, $darken-to: 0, $themes: $themes) {
+@mixin themify($property, $key, $extra-color-params: null, $themes: $themes) {
   // Iterate over the themes
   @each $theme, $colors in $themes {
     // Create a selector (e.g. `.media.theme-unicorn, .theme-unicorn .media`)
     &.#{$theme}-theme,
     .#{$theme}-theme & {
       // Output the declaration
-      @if($darken-to != 0) {
-        #{$property}: darken(map-get($colors, $key), $darken-to);
+      @if($extra-color-params != null) {
+        @each $color-param, $value in $extra-color-params {
+          @if (function-exists($color-param)) {
+            // This will throw a deprecation warning to use call(get-function("darken")), but
+            // that wont work due to our current sass version, update when sass is >=3.5
+            #{$property}: call($color-param, map-get($colors, $key), $value);
+          }
+        }
       } @else {
         #{$property}: map-get($colors, $key);
       }
