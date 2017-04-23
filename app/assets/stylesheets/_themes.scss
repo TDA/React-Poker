@@ -24,6 +24,8 @@ $themes: (
         )
 ) !default;
 
+// This can be made more generic for all coloring properties
+// e.g. lighten, darken, saturate, etc
 @mixin themify($property, $key, $darken-to: 0, $themes: $themes) {
   // Iterate over the themes
   @each $theme, $colors in $themes {

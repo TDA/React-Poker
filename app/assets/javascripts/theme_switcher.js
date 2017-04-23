@@ -21,7 +21,7 @@ function _initializeThemeSwitcher() {
     }
     themeSwitcherDiv.appendChild(themeSelector);
 
-    var appThemeDiv = document.querySelector('#app-theme');
+    const appThemeDiv = document.querySelector('#app-theme');
     appThemeDiv.insertBefore(themeSwitcherDiv, appThemeDiv.firstChild);
 
     themeSelector.addEventListener('change', function (e) {
