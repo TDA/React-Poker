@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require theme_switcher
 //= require react
 //= require react_ujs
 //= require turbolinks
